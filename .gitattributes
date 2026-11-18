@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.uasset binary
+*.dll binary
+*.exe binary
+*.blend binary

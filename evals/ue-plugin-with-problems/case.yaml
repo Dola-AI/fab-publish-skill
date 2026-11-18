@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: ue-plugin-with-problems
+expected_outcome: |
+  Detects an Unreal code plugin, lists blockers (Binaries/Intermediate, invalid uplugin, copyright, absolute paths, third-party licence, exe), asks the questions the files cannot answer, gives a NOT READY or READY AFTER FIXES verdict and drafts FAB_LISTING.md.
+context:
+  scaffold_script: place-files.sh

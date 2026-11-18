@@ -1,0 +1,27 @@
+{
+ "FileVersion": 3,
+ "Version": 1,
+ "VersionName": "1.0.0",
+ "FriendlyName": "Clean Tool",
+ "Description": "Adds a clean tool.",
+ "Category": "Editor",
+ "CreatedBy": "Example Studio",
+ "CreatedByURL": "https://example.com",
+ "DocsURL": "https://example.com/docs",
+ "SupportURL": "https://example.com/support",
+ "EngineVersion": "5.6.0",
+ "FabURL": "com.epicgames.launcher://ue/Fab/product/ad53b85f109c87b4a8bf580898186114",
+ "CanContainContent": true,
+ "Modules": [
+  {
+   "Name": "CleanTool",
+   "Type": "Editor",
+   "LoadingPhase": "Default",
+   "PlatformAllowList": [
+    "Win64",
+    "Mac",
+    "Linux"
+   ]
+  }
+ ]
+}

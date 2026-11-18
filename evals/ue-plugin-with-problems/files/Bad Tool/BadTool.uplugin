@@ -1,0 +1,1 @@
+{ "FileVersion": 3, "FriendlyName": "Bad", "Modules": [ { "Name": "BadTool", "Type": "Runtimee" }, { "Name": "Missing", "Type": "Runtime", "PlatformAllowList": ["Win64", "HTML5"] } ], }

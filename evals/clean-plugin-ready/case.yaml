@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: clean-plugin-ready
+expected_outcome: |
+  Finds no blockers, notes the ThirdParty declaration and portal-only items (FabURL), asks the remaining listing questions and gives READY or READY AFTER FIXES with only small items.
+context:
+  scaffold_script: place-files.sh
