@@ -87,3 +87,5 @@ MIT, see [LICENSE](LICENSE).
 ---
 
 Made by [Dola AI](https://dolaai.pro) · [Docs](https://dolaai.pro/docs) · [Discord](https://discord.gg/2hna95rx3m) · Issues and pull requests welcome.
+
+Support: https://github.com/Dola-AI/fab-publish-skill/issues · Privacy policy: https://dolaai.pro/privacy · Terms of service: https://dolaai.pro/terms
