@@ -22,6 +22,8 @@ A Claude Agent Skill that gets Unreal Engine and Unity products ready for [Fab](
 /plugin install fab-publish@dola-ai
 ```
 
+If the first line fails with an access error (no GitHub SSH key), use the HTTPS URL: `/plugin marketplace add https://github.com/Dola-AI/fab-publish-skill.git`.
+
 Then just ask, e.g. "is my plugin ready for Fab?", or run `/fab-publish:fab-publish`.
 
 **Claude Code (skill only):** copy `skills/fab-publish/` to `~/.claude/skills/fab-publish/` (all projects) or `<project>/.claude/skills/fab-publish/` (one project).
