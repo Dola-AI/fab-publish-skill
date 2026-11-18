@@ -5,7 +5,7 @@ Ground rules, because a broken project is worse than a rejected listing:
 1. Show the user a diff (or an exact list of files to move or delete) and get a clear yes before writing. One yes covers the change shown, not later ones.
 2. Never delete or rename in the user's working copy without that yes. Prefer working on a copy: for packaging fixes (removing Binaries, Saved and the like) offer to build a clean staging copy, for example `<Product>_FabUpload/`, and zip that, leaving the original alone.
 3. Anything that changes asset references (renaming or moving .uasset/.umap files, deleting assets, fixing redirectors) goes through the engine. If Unreal or Unity is open and the agent can drive it (MCP, Python, editor scripting), do it there. Otherwise list the exact manual steps. Renaming .uasset files on disk breaks every reference to them.
-4. Re-run `fab_audit.py` after every batch of fixes and show what changed.
+4. Re-check the affected items (or re-run the optional `fab_audit.py`) after every batch of fixes and show what changed.
 5. Say exactly what changed: file, field, old value, new value.
 
 ## F-1 Remove local and build folders (Binaries, Intermediate, Saved, DerivedDataCache, Build, Library, Temp, .vs)

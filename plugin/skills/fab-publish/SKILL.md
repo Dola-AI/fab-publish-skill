@@ -1,6 +1,6 @@
 ---
 name: fab-publish
-description: Prepares Unreal Engine and Unity products for publishing on Fab (fab.com, Epic's marketplace) - code plugins, Blueprint systems, complete projects, asset packs, 3D models, materials, textures, audio, VFX, animations, HDRIs, MetaHumans, UEFN Source, Unity packages and bundles. Detects the product type, runs a read-only audit script against Fab's technical requirements, checks the listing rules, asks only the questions the files cannot answer, gives a READY / READY AFTER FIXES / NOT READY verdict with rejection risks, applies agreed fixes (.uplugin, .uproject, package.json, copyright headers, folder clean-up, README) and writes a ready-to-paste FAB_LISTING.md. Use this whenever someone mentions Fab, fab.com, the Unreal Marketplace, selling or giving away an Unreal or Unity asset, plugin, pack or project, a .uplugin or .uproject they want to ship, Fab review or rejection, or "is this ready to publish", even if they do not say "Fab".
+description: Prepares Unreal Engine and Unity products for publishing on Fab (fab.com, Epic's marketplace) - code plugins, Blueprint systems, complete projects, asset packs, 3D models, materials, textures, audio, VFX, animations, HDRIs, MetaHumans, UEFN Source, Unity packages and bundles. Detects the product type, audits the files against Fab's technical requirements, checks the listing rules, asks only the questions the files cannot answer, gives a READY / READY AFTER FIXES / NOT READY verdict with rejection risks, applies agreed fixes (.uplugin, .uproject, package.json, copyright headers, folder clean-up, README) and writes a ready-to-paste FAB_LISTING.md. Use this whenever someone mentions Fab, fab.com, the Unreal Marketplace, selling or giving away an Unreal or Unity asset, plugin, pack or project, a .uplugin or .uproject they want to ship, Fab review or rejection, or "is this ready to publish", even if they do not say "Fab".
 ---
 
 # Publish to Fab
@@ -14,9 +14,9 @@ The rules in `references/` are paraphrased from Fab's public docs as of 2026-11-
 Work through these steps in order. Each step says why it exists so you can adapt when the situation differs.
 
 1. **Detect** what the product is.
-2. **Audit** with the script.
+2. **Audit** the files (optional script for speed).
 3. **Read** the matching references.
-4. **Manual checks** the script cannot do.
+4. **Manual checks** that need judgment or the editor.
 5. **Checklist** shown to the user.
 6. **Questions**, a few at a time.
 7. **Verdict** with rejection risks.
@@ -43,15 +43,13 @@ Find the product root: the folder the user points at, a zip, or a `.unitypackage
 
 Then settle two things with the user, the engine/format and the Fab product type (list in `references/questions.md` round 0). If detection is clear, state it in one line and let them correct it ("Looks like an Unreal 5.6 editor code plugin, which Fab files under Tools & Plugins. Right?"). Ask only when it is genuinely unclear, for example a project containing a plugin, or loose FBX files that could be a 3D Models listing or part of a Unity pack. Unreal and Unity get the same depth: both have audit checks, references, fixes and write-back.
 
-### 2. Audit script
+### 2. Audit the files
 
-```
-python <skill-dir>/scripts/fab_audit.py <product path> --json
-```
+Go through every check in the references for the detected type by reading the files yourself: descriptor JSON and fields, folder layout, leftover local folders (Binaries, Intermediate, Saved, DerivedDataCache, Library, Temp), forbidden file types, file and path name rules, copyright notices, absolute paths, third-party licences, docs, maps or demo scenes, and placeholder-sized asset files. Items marked `auto: <id>` in the references are the ones that can be decided from files alone; decide them all before asking the user anything.
 
-It is read-only and stdlib-only, and it accepts a folder, a `.zip` or a `.unitypackage`. It prints `detected` types, `facts` (descriptor fields, modules, platforms, maps, image sizes, audio formats, counts) and `results` items `{id, category, status: pass|fail|ask, severity, message, source}`. Without `--json` it prints the same as a grouped checklist. Run `--selftest` if you doubt the script. Exit code 1 means at least one failure.
+If the user has the optional audit script from the repository (`tools/fab_audit.py` in https://github.com/Dola-AI/fab-publish-skill, Python 3 stdlib only, read-only), running `python fab_audit.py <product path> --json` does the same checks faster and prints `detected` types, `facts` and `results` items `{id, status, severity, message, source}` using the same ids. Use it when it is present; do not download it without the user's say-so.
 
-Use the facts to pre-fill answers and the listing draft. Never ask the user for something the facts already contain.
+Record the facts you find (engine version, modules, platforms, maps, image sizes, audio formats) and use them to pre-fill answers and the listing draft. Never ask the user for something the files already show.
 
 ### 3. Read the relevant references
 
@@ -66,7 +64,7 @@ Always read `references/common-listing.md`. Then by type:
 | Unity (any form) | `unity.md` + the asset-type file |
 | UEFN Source, bundles | `uefn-and-bundles.md` |
 
-Each item has an ID, a check, how to verify (`auto: <script id>`, `manual`, `ask`, `portal`), a severity and a source. Use `questions.md` for wording questions and `fixes.md` for every change you make. `fab-listing-template.md` is the listing draft.
+Each item has an ID, a check, how to verify (`auto: <check id>`, `manual`, `ask`, `portal`), a severity and a source. Use `questions.md` for wording questions and `fixes.md` for every change you make. `fab-listing-template.md` is the listing draft.
 
 ### 4. Manual checks
 
@@ -76,7 +74,7 @@ Some things only exist after upload or in the Fab portal: the listing ID for `Fa
 
 ### 5. Checklist (fixed format)
 
-Show results grouped by category, blockers first within each group. Merge script results and manual findings. Keep each line short; put the fix and the source on the next line for anything not passing.
+Show results grouped by category, blockers first within each group. Merge file-audit results and manual findings. Keep each line short; put the fix and the source on the next line for anything not passing.
 
 ```
 ## Fab readiness: <Product name> (<detected type>, <engine/version>)

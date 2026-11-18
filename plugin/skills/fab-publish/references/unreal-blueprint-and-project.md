@@ -2,7 +2,7 @@
 
 For Unreal Engine format uploads that are not code plugins: asset packs, Blueprint systems, game templates, environments and complete projects (.uproject). Read `common-listing.md` too, and `3d-models-and-materials.md` or `audio-vfx-and-other.md` for the asset types inside. Paraphrased from Fab's docs (snapshot 2026-11-18).
 
-Verify: `auto: <id>` = `fab_audit.py` id; `manual` = read files or open the editor; `ask` = ask the user; `portal` = Fab portal only.
+Verify: `auto: <id>` = decidable from files (same id in the optional `fab_audit.py`); `manual` = read files or open the editor; `ask` = ask the user; `portal` = Fab portal only.
 
 ## Distribution method and versions
 

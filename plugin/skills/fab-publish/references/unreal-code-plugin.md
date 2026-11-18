@@ -4,7 +4,7 @@ For products uploaded in the Unreal Engine format as a code plugin, usually list
 
 Fab builds code plugins itself, once per engine version you select, and ships its own binaries. Buyers install them as engine plugins (under `Engine/Plugins/Fab`), not as project plugins. Most rules below exist so that build succeeds on Epic's farm.
 
-Verify: `auto: <id>` = `fab_audit.py` result id; `manual` = read files; `ask` = ask the user; `portal` = only in the Fab portal or after upload.
+Verify: `auto: <id>` = decidable from files (same id in the optional `fab_audit.py`); `manual` = read files; `ask` = ask the user; `portal` = only in the Fab portal or after upload.
 
 ## Descriptor (.uplugin)
 

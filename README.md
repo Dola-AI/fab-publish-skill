@@ -26,7 +26,7 @@ If the first line fails with an access error (no GitHub SSH key), use the HTTPS 
 
 Then just ask, e.g. "is my plugin ready for Fab?", or run `/fab-publish:fab-publish`.
 
-**Claude Code (skill only):** copy `skills/fab-publish/` to `~/.claude/skills/fab-publish/` (all projects) or `<project>/.claude/skills/fab-publish/` (one project).
+**Claude Code (skill only):** copy `plugin/skills/fab-publish/` to `~/.claude/skills/fab-publish/` (all projects) or `<project>/.claude/skills/fab-publish/` (one project).
 
 **Claude.ai / Claude desktop:** download `fab-publish.zip` from the [latest release](https://github.com/Dola-AI/fab-publish-skill/releases/latest) and upload it under Customize > Skills.
 
@@ -53,9 +53,9 @@ Verdict: READY AFTER FIXES (3 I can do, 1 in the Fab portal)
 You can also run the script on its own:
 
 ```
-python skills/fab-publish/scripts/fab_audit.py path/to/MyPlugin          # checklist
-python skills/fab-publish/scripts/fab_audit.py MyPlugin.zip --json       # machine-readable
-python skills/fab-publish/scripts/fab_audit.py --selftest                # built-in tests
+python tools/fab_audit.py path/to/MyPlugin          # checklist
+python tools/fab_audit.py MyPlugin.zip --json       # machine-readable
+python tools/fab_audit.py --selftest                # built-in tests
 ```
 
 It never modifies files.
@@ -63,12 +63,16 @@ It never modifies files.
 ## Layout
 
 ```
-skills/fab-publish/SKILL.md  workflow Claude follows
-  references/                checklists per product type, question bank, fix recipes, listing template
-  scripts/fab_audit.py       read-only audit (stdlib only)
-  evals/                     test prompts
-.claude-plugin/              plugin + marketplace manifests
+plugin/                          the Claude plugin (Markdown, JSON and the icon only)
+  .claude-plugin/plugin.json
+  skills/fab-publish/SKILL.md    workflow Claude follows
+  skills/fab-publish/references/ checklists per product type, question bank, fix recipes, listing template
+tools/fab_audit.py               optional read-only audit script (Python 3 stdlib); same check ids as the references
+evals/                           test cases
+.claude-plugin/marketplace.json  marketplace "dola-ai"
 ```
+
+The skill works without the script: Claude does the same checks by reading your files. The script is faster on big projects.
 
 ## Sources and accuracy
 

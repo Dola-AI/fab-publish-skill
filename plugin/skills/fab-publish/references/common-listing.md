@@ -2,7 +2,7 @@
 
 Applies to every listing, whatever the engine or format. Paraphrased from Fab's public docs (snapshot 2026-11-18); follow the source link for the binding wording.
 
-Columns: **Verify** is `auto: <script id>` when `fab_audit.py` checks it, `manual` when you read files or ask the user, `portal` when it can only be checked in the Fab publisher portal after upload. **Severity**: blocker (Fab will decline or the upload fails), review risk (a common reason for "Changes needed"), recommended (better listing, not enforced).
+Columns: **Verify** is `auto: <id>` when it can be decided from the files alone (the optional `fab_audit.py` uses the same ids), `manual` when you read files or ask the user, `portal` when it can only be checked in the Fab publisher portal after upload. **Severity**: blocker (Fab will decline or the upload fails), review risk (a common reason for "Changes needed"), recommended (better listing, not enforced).
 
 ## Account and publisher profile
 
