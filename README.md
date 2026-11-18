@@ -1,5 +1,7 @@
 # fab-publish: a Claude skill for publishing on Fab
 
+By **[Dola AI](https://dolaai.pro)**, the AI assistant for Unreal Engine 5. Maintained by [@A-G-U-P-T-A](https://github.com/A-G-U-P-T-A).
+
 A Claude Agent Skill that gets Unreal Engine and Unity products ready for [Fab](https://www.fab.com), Epic Games' marketplace. Point Claude at your plugin, project, asset pack or Unity package and it will:
 
 1. detect what you built (code plugin, content project, UEFN Source, MetaHuman, Unity project/package/UPM, 3D files, audio, HDRI);
@@ -65,3 +67,7 @@ The checklists paraphrase Fab's public documentation, technical requirements, he
 ## Licence
 
 MIT, see [LICENSE](LICENSE).
+
+---
+
+Made by [Dola AI](https://dolaai.pro) · [Docs](https://dolaai.pro/docs) · [Discord](https://discord.gg/2hna95rx3m) · Issues and pull requests welcome.
