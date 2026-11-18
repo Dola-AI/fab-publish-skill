@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "dola-ai",
+  "description": "Claude Code plugins from Dola AI (dolaai.pro), the AI assistant for Unreal Engine 5.",
+  "owner": { "name": "Dola AI", "url": "https://dolaai.pro" },
+  "plugins": [
+    {
+      "name": "fab-publish",
+      "description": "Get Unreal and Unity products ready for Fab: checklist, audit, fixes, listing draft.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://dolaai.pro"
+    }
+  ]
+}

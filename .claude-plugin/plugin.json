@@ -1,0 +1,10 @@
+{
+  "name": "fab-publish",
+  "version": "1.0.0",
+  "description": "Get Unreal Engine and Unity products ready for Fab (Epic's marketplace): readiness checklist, read-only audit script, guided fixes and a ready-to-paste listing draft.",
+  "author": { "name": "Dola AI", "url": "https://dolaai.pro" },
+  "homepage": "https://dolaai.pro",
+  "repository": "https://github.com/Dola-AI/fab-publish-skill",
+  "license": "MIT",
+  "keywords": ["fab", "unreal-engine", "unity", "marketplace", "publishing", "uplugin"]
+}

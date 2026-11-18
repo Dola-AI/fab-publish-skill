@@ -15,9 +15,18 @@ A Claude Agent Skill that gets Unreal Engine and Unity products ready for [Fab](
 
 ## Install
 
-- **Claude Code, all projects:** copy this folder to `~/.claude/skills/fab-publish/`.
-- **Claude Code, one project:** copy it to `<project>/.claude/skills/fab-publish/`.
-- **Claude.ai / Claude desktop:** zip the folder and upload it under Settings > Capabilities > Skills.
+**Claude Code (plugin, recommended):**
+
+```
+/plugin marketplace add Dola-AI/fab-publish-skill
+/plugin install fab-publish@dola-ai
+```
+
+Then just ask, e.g. "is my plugin ready for Fab?", or run `/fab-publish:fab-publish`.
+
+**Claude Code (skill only):** copy `skills/fab-publish/` to `~/.claude/skills/fab-publish/` (all projects) or `<project>/.claude/skills/fab-publish/` (one project).
+
+**Claude.ai / Claude desktop:** download `fab-publish.zip` from the [latest release](https://github.com/Dola-AI/fab-publish-skill/releases/latest) and upload it under Customize > Skills.
 
 The audit script needs Python 3.8 or newer and nothing else.
 
@@ -42,9 +51,9 @@ Verdict: READY AFTER FIXES (3 I can do, 1 in the Fab portal)
 You can also run the script on its own:
 
 ```
-python scripts/fab_audit.py path/to/MyPlugin          # checklist
-python scripts/fab_audit.py MyPlugin.zip --json       # machine-readable
-python scripts/fab_audit.py --selftest                # built-in tests
+python skills/fab-publish/scripts/fab_audit.py path/to/MyPlugin          # checklist
+python skills/fab-publish/scripts/fab_audit.py MyPlugin.zip --json       # machine-readable
+python skills/fab-publish/scripts/fab_audit.py --selftest                # built-in tests
 ```
 
 It never modifies files.
@@ -52,10 +61,11 @@ It never modifies files.
 ## Layout
 
 ```
-SKILL.md                     workflow Claude follows
-references/                  checklists per product type, question bank, fix recipes, listing template
-scripts/fab_audit.py         read-only audit (stdlib only)
-evals/                       test prompts
+skills/fab-publish/SKILL.md  workflow Claude follows
+  references/                checklists per product type, question bank, fix recipes, listing template
+  scripts/fab_audit.py       read-only audit (stdlib only)
+  evals/                     test prompts
+.claude-plugin/              plugin + marketplace manifests
 ```
 
 ## Sources and accuracy
