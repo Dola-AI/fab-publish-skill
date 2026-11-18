@@ -18,5 +18,9 @@
     "uplugin"
   ],
   "displayName": "Fab Publish Check by Dola AI",
-  "icon": ".claude-plugin/icon.png"
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://dolaai.pro/privacy",
+  "termsOfServiceUrl": "https://dolaai.pro/terms",
+  "supportUrl": "https://github.com/Dola-AI/fab-publish-skill/issues",
+  "documentationUrl": "https://github.com/Dola-AI/fab-publish-skill#readme"
 }
